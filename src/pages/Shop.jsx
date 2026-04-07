@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import ProductCard from "../components/ProductCard";
 import FilterBar from "../components/FilterBar";
-import products from "../data/products";
+import { useData } from "../context/DataContext";
 
 const categories = ["All", "Pokemon", "MTG", "Sports"];
 const priceRanges = ["All Prices", "Under $50", "$50–$150", "Over $150"];
@@ -20,6 +20,7 @@ function matchesPrice(product, range) {
 }
 
 export default function Shop() {
+  const { products } = useData();
   const [category, setCategory] = useState("All");
   const [priceRange, setPriceRange] = useState("All Prices");
 

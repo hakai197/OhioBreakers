@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
-import products from "../data/products";
+import { useData } from "../context/DataContext";
 
 export default function ShopPreview() {
+  const { products } = useData();
   const preview = products.filter((p) => p.inStock).slice(0, 4);
 
   return (

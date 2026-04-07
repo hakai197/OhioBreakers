@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useData } from "../context/DataContext";
 
 export default function HeroSection() {
+  const { siteSettings } = useData();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-dark via-brand-blue/30 to-brand-dark">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(200,16,46,0.15),transparent_60%)]" />
@@ -10,11 +13,10 @@ export default function HeroSection() {
           <span className="text-brand-gold">BREAKERS</span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mt-4 font-light">
-          Trade &bull; Break &bull; Collect
+          {siteSettings.heroTitle}
         </p>
         <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-          Ohio's premier trading card community. Join thousands of collectors ripping packs,
-          sharing pulls, and trading cards every day.
+          {siteSettings.heroSubtitle}
         </p>
         <div className="flex flex-wrap justify-center gap-4 mt-8">
           <Link

@@ -1,11 +1,12 @@
 import { useState, useMemo } from "react";
 import VideoCard from "../components/VideoCard";
 import FilterBar from "../components/FilterBar";
-import videos from "../data/videos";
+import { useData } from "../context/DataContext";
 
 const categories = ["All", "Pokemon", "MTG", "Sports"];
 
 export default function VideoGallery() {
+  const { videos } = useData();
   const [category, setCategory] = useState("All");
 
   const filtered = useMemo(

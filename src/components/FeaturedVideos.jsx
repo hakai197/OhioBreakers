@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import VideoCard from "./VideoCard";
-import videos from "../data/videos";
+import { useData } from "../context/DataContext";
 
 export default function FeaturedVideos() {
+  const { videos } = useData();
   const featured = videos.slice(0, 3);
 
   return (

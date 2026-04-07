@@ -10,6 +10,25 @@ Ohio Breakers is a trading card community website built for collectors in Ohio a
 - **Community** — Comment and interact with other collectors
 - **Cart** — Add-to-cart shopping experience with auth support
 
+## Admin Dashboard
+
+An admin panel is available for managing site content.
+
+**Login:** Navigate to `/admin`
+
+- **Username:** `admin`
+- **Password:** `ohiobreakers2026`
+
+### Admin Features
+
+| Tab | Description |
+|---|---|
+| **Videos** | Add, edit, and delete YouTube/TikTok videos. Reset to defaults. |
+| **Products** | Add, edit, and delete products. Manage stock status, pricing, images, and categories. Reset to defaults. |
+| **Site Settings** | Edit hero title/subtitle, set an announcement banner, and update social/eBay links. |
+
+All admin changes are persisted to `localStorage` and take effect immediately across the site.
+
 ## Tech Stack
 
 - React 18 with React Router v6
