@@ -21,7 +21,7 @@ function AnnouncementBanner() {
   const { siteSettings } = useData();
   if (!siteSettings.announcement) return null;
   return (
-    <div className="bg-brand-gold text-brand-dark text-center text-sm font-semibold py-2 px-4">
+    <div className="bg-brand-gold text-white text-center text-sm font-semibold py-2 px-4">
       {siteSettings.announcement}
     </div>
   );

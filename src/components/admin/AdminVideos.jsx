@@ -165,7 +165,7 @@ export default function AdminVideos() {
           <div className="flex gap-2 pt-2">
             <button
               type="submit"
-              className="flex items-center gap-1.5 px-4 py-2 text-sm bg-brand-gold hover:bg-yellow-500 text-brand-dark font-semibold rounded-lg transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2 text-sm bg-brand-gold hover:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
             >
               <FiCheck size={16} /> {editing === "new" ? "Add Video" : "Save Changes"}
             </button>

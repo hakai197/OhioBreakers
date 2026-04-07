@@ -108,7 +108,7 @@ export default function AdminSiteSettings() {
       <div className="flex items-center gap-3">
         <button
           type="submit"
-          className="flex items-center gap-1.5 px-6 py-2.5 bg-brand-gold hover:bg-yellow-500 text-brand-dark font-semibold rounded-lg transition-colors"
+          className="flex items-center gap-1.5 px-6 py-2.5 bg-brand-gold hover:bg-sky-500 text-white font-semibold rounded-lg transition-colors"
         >
           <FiCheck size={16} /> Save Settings
         </button>

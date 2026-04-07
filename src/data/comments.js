@@ -18,7 +18,7 @@ const initialComments = [
   {
     id: 3,
     user: "MTG_Sarah",
-    avatar: "https://placehold.co/40x40/FFD700/000?text=MS",
+    avatar: "https://placehold.co/40x40/007ACC/000?text=MS",
     text: "The Foundations collector box was absolutely stacked. Best MTG set in years.",
     date: "2026-03-26",
     likes: 31,
@@ -34,7 +34,7 @@ const initialComments = [
   {
     id: 5,
     user: "OhioBreakers",
-    avatar: "https://placehold.co/40x40/1D3557/FFD700?text=OB",
+    avatar: "https://placehold.co/40x40/1D3557/007ACC?text=OB",
     text: "🎉 GIVEAWAY ALERT! Follow us and comment your favorite card to win a free booster box!",
     date: "2026-03-24",
     likes: 156,

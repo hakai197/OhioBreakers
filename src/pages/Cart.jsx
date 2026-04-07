@@ -94,7 +94,7 @@ export default function Cart() {
           <span>Shipping</span>
           <span>Calculated at checkout</span>
         </div>
-        <button className="w-full py-3 bg-brand-gold hover:bg-yellow-400 text-brand-dark font-bold rounded-lg transition-colors text-lg">
+        <button className="w-full py-3 bg-brand-gold hover:bg-sky-500 text-white font-bold rounded-lg transition-colors text-lg">
           Proceed to Checkout
         </button>
         <Link

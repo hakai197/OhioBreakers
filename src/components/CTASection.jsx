@@ -13,7 +13,7 @@ export default function CTASection() {
         </p>
         <Link
           to="/community"
-          className="inline-block mt-8 px-10 py-3 bg-brand-gold text-brand-dark font-bold rounded-lg hover:bg-yellow-400 transition-colors"
+          className="inline-block mt-8 px-10 py-3 bg-brand-gold text-white font-bold rounded-lg hover:bg-sky-500 transition-colors"
         >
           Join Now — It's Free
         </Link>

@@ -5,7 +5,7 @@ const ebayListings = [
     id: 1,
     title: "PSA 10 Charizard VMAX Rainbow - Champion's Path",
     price: "$349.99",
-    image: "https://placehold.co/300x300/1D3557/FFD700?text=PSA+10+Charizard",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=PSA+10+Charizard",
     bids: 12,
     timeLeft: "2d 4h",
   },
@@ -13,7 +13,7 @@ const ebayListings = [
     id: 2,
     title: "2024 Topps Chrome Hobby Box SEALED",
     price: "$289.99",
-    image: "https://placehold.co/300x300/1D3557/FFD700?text=Topps+Chrome+Box",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=Topps+Chrome+Box",
     bids: 8,
     timeLeft: "1d 12h",
   },
@@ -21,7 +21,7 @@ const ebayListings = [
     id: 3,
     title: "MTG Black Lotus (Collectors Edition) EX",
     price: "$1,499.99",
-    image: "https://placehold.co/300x300/1D3557/FFD700?text=Black+Lotus",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=Black+Lotus",
     bids: 24,
     timeLeft: "5d 8h",
   },
@@ -29,7 +29,7 @@ const ebayListings = [
     id: 4,
     title: "Pokémon 151 Ultra Premium Collection SEALED",
     price: "$129.99",
-    image: "https://placehold.co/300x300/1D3557/FFD700?text=151+UPC",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=151+UPC",
     bids: 6,
     timeLeft: "3d 1h",
   },
@@ -37,7 +37,7 @@ const ebayListings = [
     id: 5,
     title: "Luka Doncic Prizm Silver RC PSA 9",
     price: "$599.99",
-    image: "https://placehold.co/300x300/1D3557/FFD700?text=Luka+PSA+9",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=Luka+PSA+9",
     bids: 18,
     timeLeft: "6h 30m",
   },
@@ -45,7 +45,7 @@ const ebayListings = [
     id: 6,
     title: "One Piece OP-09 Sealed Case (12 Boxes)",
     price: "$899.99",
-    image: "https://placehold.co/300x300/1D3557/FFD700?text=OP-09+Case",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=OP-09+Case",
     bids: 3,
     timeLeft: "4d 16h",
   },
@@ -136,7 +136,7 @@ export default function EbayStore() {
           href="https://www.ebay.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-3 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark font-semibold rounded-lg transition-colors"
+          className="inline-flex items-center gap-2 px-8 py-3 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-semibold rounded-lg transition-colors"
         >
           Browse All eBay Listings <FiExternalLink size={16} />
         </a>
