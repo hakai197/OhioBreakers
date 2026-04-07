@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FiMenu, FiX, FiShoppingCart, FiUser } from "react-icons/fi";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
+import AnimatedList from "./AnimatedList";
 
 const links = [
   { to: "/", label: "Home" },
@@ -16,11 +17,28 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { totalItems } = useCart();
   const { user, logout, setShowAuthModal } = useAuth();
+  const navigate = useNavigate();
 
   const navLinkClass = ({ isActive }) =>
     `transition-colors duration-200 hover:text-brand-gold ${
       isActive ? "text-brand-gold font-semibold" : "text-gray-300"
     }`;
+
+  const mobileMenuItems = [
+    ...links.map((l) => l.label),
+    user ? `Logout (${user.username})` : "Sign In",
+  ];
+
+  const handleMobileSelect = (item, index) => {
+    if (index < links.length) {
+      navigate(links[index].to);
+    } else if (user) {
+      logout();
+    } else {
+      setShowAuthModal(true);
+    }
+    setOpen(false);
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur border-b border-white/10">
@@ -83,34 +101,13 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden border-t border-white/10 bg-brand-dark">
-          <div className="flex flex-col px-4 py-3 gap-3">
-            {links.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                className={navLinkClass}
-                end={l.to === "/"}
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </NavLink>
-            ))}
-            {user ? (
-              <button onClick={logout} className="text-left text-gray-300 hover:text-white">
-                Logout ({user.username})
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setShowAuthModal(true);
-                  setOpen(false);
-                }}
-                className="text-left text-gray-300 hover:text-brand-gold"
-              >
-                Sign In
-              </button>
-            )}
-          </div>
+          <AnimatedList
+            items={mobileMenuItems}
+            onItemSelect={handleMobileSelect}
+            showGradients={false}
+            enableArrowNavigation
+            displayScrollbar={false}
+          />
         </div>
       )}
     </nav>
