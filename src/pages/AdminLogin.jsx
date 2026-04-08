@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useAdmin } from "../context/AdminContext";
 import { FiLock } from "react-icons/fi";
 
+
 export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { isAdmin, adminLogin } = useAdmin();
+  const { isAdmin, adminLogin, adminError } = useAdmin();
   const navigate = useNavigate();
 
   if (isAdmin) {
@@ -15,14 +16,14 @@ export default function AdminLogin() {
     return null;
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    const success = adminLogin(username, password);
+    const success = await adminLogin(username, password);
     if (success) {
       navigate("/admin/dashboard");
     } else {
-      setError("Invalid credentials");
+      setError(adminError || "Invalid credentials");
     }
   };
 
@@ -46,8 +47,9 @@ export default function AdminLogin() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm text-gray-300 mb-1">Username</label>
+              <label htmlFor="admin-username" className="block text-sm text-gray-300 mb-1">Username</label>
               <input
+                id="admin-username"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -58,8 +60,9 @@ export default function AdminLogin() {
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-300 mb-1">Password</label>
+              <label htmlFor="admin-password" className="block text-sm text-gray-300 mb-1">Password</label>
               <input
+                id="admin-password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
