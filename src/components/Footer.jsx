@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 text-center text-gray-500 text-xs py-4">
-        &copy; {new Date().getFullYear()} Ohio Breakers. All rights reserved.
+        &copy; {new Date().getFullYear()} U197 Designs. All rights reserved.
       </div>
     </footer>
   );

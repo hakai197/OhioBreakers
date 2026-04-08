@@ -11,7 +11,7 @@ const SITE_SETTINGS_KEY = "ohio_breakers_site_settings";
 const defaultSiteSettings = {
   siteName: "Ohio Breakers",
   heroTitle: "Rip. Pull. Collect.",
-  heroSubtitle: "Ohio's #1 card-breaking community — Pokémon, MTG, sports cards & more.",
+  heroSubtitle: "Ohio's #1 Sports card-breaking community",
   announcement: "",
   ebayStoreUrl: "https://www.ebay.com/str/ohiobreakers",
   youtubeUrl: "https://youtube.com/@ohiobreakers",

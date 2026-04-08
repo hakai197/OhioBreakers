@@ -3,17 +3,28 @@ import { useAuth } from "../context/AuthContext";
 import { FiX } from "react-icons/fi";
 
 export default function AuthModal() {
-  const { showAuthModal, setShowAuthModal, login } = useAuth();
+  const { showAuthModal, setShowAuthModal, login, register, authError } = useAuth();
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [mode, setMode] = useState("login"); // login | register
+  const [loading, setLoading] = useState(false);
 
   if (!showAuthModal) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username.trim().length >= 2) {
-      login(username.trim());
+    if (username.trim().length < 2 || password.length < 2) return;
+    setLoading(true);
+    let ok = false;
+    if (mode === "login") {
+      ok = await login(username.trim(), password);
+    } else {
+      ok = await register(username.trim(), password);
+    }
+    setLoading(false);
+    if (ok) {
       setUsername("");
+      setPassword("");
     }
   };
 
@@ -50,23 +61,31 @@ export default function AuthModal() {
               placeholder="Enter your username"
               required
               minLength={2}
+              disabled={loading}
             />
           </div>
           <div>
             <label className="block text-sm text-gray-300 mb-1">Password</label>
             <input
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2.5 bg-brand-dark border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold"
               placeholder="Enter your password"
-              defaultValue="demo1234"
+              required
+              minLength={2}
+              disabled={loading}
             />
-            <p className="text-xs text-gray-500 mt-1">Demo mode – any password works</p>
           </div>
+          {authError && (
+            <div className="text-red-400 text-sm">{authError}</div>
+          )}
           <button
             type="submit"
             className="w-full py-2.5 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-lg transition-colors"
+            disabled={loading}
           >
-            {mode === "login" ? "Sign In" : "Create Account"}
+            {loading ? (mode === "login" ? "Signing In..." : "Creating Account...") : (mode === "login" ? "Sign In" : "Create Account")}
           </button>
         </form>
         <p className="text-center text-sm text-gray-400 mt-4">
@@ -74,6 +93,7 @@ export default function AuthModal() {
           <button
             onClick={() => setMode(mode === "login" ? "register" : "login")}
             className="text-brand-gold hover:underline"
+            disabled={loading}
           >
             {mode === "login" ? "Sign Up" : "Sign In"}
           </button>
