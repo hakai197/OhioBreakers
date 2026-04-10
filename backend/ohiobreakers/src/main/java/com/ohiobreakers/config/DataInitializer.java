@@ -15,11 +15,11 @@ public class DataInitializer {
             String adminUsername = "admin";
             String adminPassword = "ohiobreakers2026";
             // Check if admin user exists
-            if (userRepository.findByUsername(adminUsername) == null) {
+            if (userRepository.findByUsername(adminUsername).isEmpty()) {
                 User admin = new User();
                 admin.setUsername(adminUsername);
                 admin.setPassword(passwordEncoder.encode(adminPassword));
-                admin.setRole("ADMIN"); // Make sure your User entity has a role field
+                admin.setRole("ROLE_ADMIN");
                 userRepository.save(admin);
                 System.out.println("Default admin user created: " + adminUsername);
             }

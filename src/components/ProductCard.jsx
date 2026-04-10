@@ -1,10 +1,8 @@
-import { FiShoppingCart, FiHeart } from "react-icons/fi";
-import { useCart } from "../context/CartContext";
+import { FiExternalLink, FiHeart } from "react-icons/fi";
 import { useLikes } from "../context/LikesContext";
 import { useAuth } from "../context/AuthContext";
 
 export default function ProductCard({ product }) {
-  const { addToCart } = useCart();
   const { toggleLike, isLiked } = useLikes();
   const { user, setShowAuthModal } = useAuth();
   const liked = isLiked("product", product.id);
@@ -50,14 +48,15 @@ export default function ProductCard({ product }) {
         <p className="text-gray-400 text-xs mt-1 line-clamp-2 flex-1">{product.description}</p>
         <div className="flex items-center justify-between mt-4">
           <span className="text-lg font-bold text-white">${product.price.toFixed(2)}</span>
-          <button
-            onClick={() => product.inStock && addToCart(product)}
-            disabled={!product.inStock}
-            className="flex items-center gap-1.5 px-4 py-2 bg-brand-red hover:bg-red-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white text-sm font-semibold rounded-lg transition-colors"
+          <a
+            href="https://www.ebay.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-4 py-2 bg-brand-red hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition-colors"
           >
-            <FiShoppingCart size={16} />
-            Add
-          </button>
+            <FiExternalLink size={16} />
+            eBay
+          </a>
         </div>
       </div>
     </div>

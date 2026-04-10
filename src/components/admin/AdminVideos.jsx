@@ -8,7 +8,7 @@ const emptyVideo = {
   embedId: "",
   uploader: "OhioBreakers",
   date: new Date().toISOString().split("T")[0],
-  category: "Pokemon",
+  category: "Sports",
   likes: 0,
 };
 
@@ -68,7 +68,7 @@ export default function AdminVideos() {
           <button
             onClick={startAdd}
             disabled={editing === "new"}
-            className="flex items-center gap-1.5 px-4 py-2 text-sm bg-brand-red hover:bg-red-700 disabled:bg-gray-600 text-white font-medium rounded-lg transition-colors"
+            className="flex items-center gap-1.5 px-4 py-2 text-sm bg-brand-red hover:bg-green-700 disabled:bg-gray-600 text-white font-medium rounded-lg transition-colors"
           >
             <FiPlus size={16} /> Add Video
           </button>
@@ -146,9 +146,11 @@ export default function AdminVideos() {
                 onChange={(e) => updateField("category", e.target.value)}
                 className="w-full px-3 py-2 bg-brand-gray border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:border-brand-gold"
               >
-                <option value="Pokemon">Pokemon</option>
-                <option value="MTG">MTG</option>
                 <option value="Sports">Sports</option>
+                <option value="Baseball">Baseball</option>
+                <option value="Basketball">Basketball</option>
+                <option value="Football">Football</option>
+                <option value="Hockey">Hockey</option>
               </select>
             </div>
             <div>

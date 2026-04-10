@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FiMenu, FiX, FiShoppingCart, FiUser } from "react-icons/fi";
-import { useCart } from "../context/CartContext";
+import { FiMenu, FiX, FiUser } from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
 import AnimatedList from "./AnimatedList";
 
@@ -9,13 +8,11 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/videos", label: "Videos" },
   { to: "/shop", label: "Shop" },
-  { to: "/ebay", label: "eBay Store" },
   { to: "/community", label: "Community" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { totalItems } = useCart();
   const { user, logout, setShowAuthModal } = useAuth();
   const navigate = useNavigate();
 
@@ -80,14 +77,6 @@ export default function Navbar() {
               <FiUser size={20} />
             </button>
           )}
-          <Link to="/cart" className="relative text-gray-300 hover:text-brand-gold">
-            <FiShoppingCart size={22} />
-            {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-brand-red text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                {totalItems}
-              </span>
-            )}
-          </Link>
           <button
             className="md:hidden text-gray-300 hover:text-white"
             onClick={() => setOpen(!open)}

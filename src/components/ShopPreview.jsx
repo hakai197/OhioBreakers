@@ -13,7 +13,7 @@ export default function ShopPreview() {
           Shop <span className="text-brand-gold">Now</span>
         </h2>
         <Link to="/shop" className="text-brand-gold hover:underline text-sm">
-          View All &rarr;
+          View All on eBay &rarr;
         </Link>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">

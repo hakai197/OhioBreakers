@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
       const u = {
         username,
         jwt,
-        avatar: `https://placehold.co/40x40/C8102E/fff?text=${username.charAt(0).toUpperCase()}`,
+        avatar: `https://placehold.co/40x40/10e645/fff?text=${username.charAt(0).toUpperCase()}`,
         joinedDate: new Date().toISOString(),
       };
       setUser(u);

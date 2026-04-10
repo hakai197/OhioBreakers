@@ -3,7 +3,7 @@ import VideoCard from "../components/VideoCard";
 import FilterBar from "../components/FilterBar";
 import { useData } from "../context/DataContext";
 
-const categories = ["All", "Pokemon", "MTG", "Sports"];
+const categories = ["All", "Baseball", "Basketball", "Football", "Hockey", "Sports"];
 
 export default function VideoGallery() {
   const { videos } = useData();

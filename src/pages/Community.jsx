@@ -45,7 +45,7 @@ export default function Community() {
           </p>
           <button
             onClick={() => setShowAuthModal(true)}
-            className="px-6 py-2 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-lg transition-colors"
+            className="px-6 py-2 bg-brand-red hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
           >
             Sign In to Participate
           </button>

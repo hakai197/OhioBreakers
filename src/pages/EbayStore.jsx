@@ -1,4 +1,6 @@
 import { FiExternalLink, FiShoppingBag, FiStar, FiTruck } from "react-icons/fi";
+import ProductCard from "../components/ProductCard";
+import { useData } from "../context/DataContext";
 
 const ebayListings = [
   {
@@ -19,17 +21,17 @@ const ebayListings = [
   },
   {
     id: 3,
-    title: "MTG Black Lotus (Collectors Edition) EX",
+    title: "Ken Griffey Jr. 1989 Upper Deck RC PSA 10",
     price: "$1,499.99",
-    image: "https://placehold.co/300x300/1D3557/007ACC?text=Black+Lotus",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=Griffey+RC",
     bids: 24,
     timeLeft: "5d 8h",
   },
   {
     id: 4,
-    title: "Pokémon 151 Ultra Premium Collection SEALED",
+    title: "2024 Panini Prizm Football Hobby Box SEALED",
     price: "$129.99",
-    image: "https://placehold.co/300x300/1D3557/007ACC?text=151+UPC",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=Prizm+Football",
     bids: 6,
     timeLeft: "3d 1h",
   },
@@ -43,15 +45,17 @@ const ebayListings = [
   },
   {
     id: 6,
-    title: "One Piece OP-09 Sealed Case (12 Boxes)",
+    title: "2024 Topps Chrome Baseball Hobby Case (12 Boxes)",
     price: "$899.99",
-    image: "https://placehold.co/300x300/1D3557/007ACC?text=OP-09+Case",
+    image: "https://placehold.co/300x300/1D3557/007ACC?text=Chrome+Case",
     bids: 3,
     timeLeft: "4d 16h",
   },
 ];
 
 export default function EbayStore() {
+  const { products } = useData();
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       {/* Header */}
@@ -127,6 +131,16 @@ export default function EbayStore() {
               </div>
             </div>
           </a>
+        ))}
+      </div>
+
+      {/* Available Products */}
+      <h2 className="font-display text-2xl text-white mt-12 mb-6">
+        Available <span className="text-brand-gold">Products</span>
+      </h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        {products.map((p) => (
+          <ProductCard key={p.id} product={p} />
         ))}
       </div>
 

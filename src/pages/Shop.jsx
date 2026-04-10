@@ -3,7 +3,7 @@ import ProductCard from "../components/ProductCard";
 import FilterBar from "../components/FilterBar";
 import { useData } from "../context/DataContext";
 
-const categories = ["All", "Pokemon", "MTG", "Sports"];
+const categories = ["All", "Baseball", "Basketball", "Football", "Hockey", "Sports"];
 const priceRanges = ["All Prices", "Under $50", "$50–$150", "Over $150"];
 
 function matchesPrice(product, range) {

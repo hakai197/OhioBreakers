@@ -82,7 +82,7 @@ export default function AuthModal() {
           )}
           <button
             type="submit"
-            className="w-full py-2.5 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-lg transition-colors"
+            className="w-full py-2.5 bg-brand-red hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
             disabled={loading}
           >
             {loading ? (mode === "login" ? "Signing In..." : "Creating Account...") : (mode === "login" ? "Sign In" : "Create Account")}

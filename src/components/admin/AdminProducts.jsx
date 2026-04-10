@@ -4,8 +4,8 @@ import { FiPlus, FiEdit2, FiTrash2, FiX, FiCheck, FiRefreshCw } from "react-icon
 
 const emptyProduct = {
   name: "",
-  category: "Pokemon",
-  type: "Booster Box",
+  category: "Sports",
+  type: "Hobby Box",
   price: 0,
   image: "",
   description: "",
@@ -13,7 +13,7 @@ const emptyProduct = {
   set: "",
 };
 
-const categories = ["Pokemon", "MTG", "Sports"];
+const categories = ["Sports", "Baseball", "Basketball", "Football", "Hockey"];
 const productTypes = [
   "Booster Box",
   "Elite Trainer Box",
@@ -85,7 +85,7 @@ export default function AdminProducts() {
           <button
             onClick={startAdd}
             disabled={editing === "new"}
-            className="flex items-center gap-1.5 px-4 py-2 text-sm bg-brand-red hover:bg-red-700 disabled:bg-gray-600 text-white font-medium rounded-lg transition-colors"
+            className="flex items-center gap-1.5 px-4 py-2 text-sm bg-brand-red hover:bg-green-700 disabled:bg-gray-600 text-white font-medium rounded-lg transition-colors"
           >
             <FiPlus size={16} /> Add Product
           </button>

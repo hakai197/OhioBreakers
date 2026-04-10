@@ -12,7 +12,7 @@ export default function Cart() {
         <p className="text-gray-400 mb-8">Add some cards to get started!</p>
         <Link
           to="/shop"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red hover:bg-red-700 text-white font-semibold rounded-lg transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red hover:bg-green-700 text-white font-semibold rounded-lg transition-colors"
         >
           <FiArrowLeft size={18} /> Browse Shop
         </Link>

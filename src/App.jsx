@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { CartProvider } from "./context/CartContext";
+
 import { AuthProvider } from "./context/AuthContext";
 import { LikesProvider } from "./context/LikesContext";
 import { AdminProvider } from "./context/AdminContext";
@@ -9,10 +9,9 @@ import Footer from "./components/Footer";
 import AuthModal from "./components/AuthModal";
 import Home from "./pages/Home";
 import VideoGallery from "./pages/VideoGallery";
-import Shop from "./pages/Shop";
 import EbayStore from "./pages/EbayStore";
 import Community from "./pages/Community";
-import Cart from "./pages/Cart";
+
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import { useData } from "./context/DataContext";
@@ -39,10 +38,8 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/videos" element={<VideoGallery />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/ebay" element={<EbayStore />} />
+          <Route path="/shop" element={<EbayStore />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
         </Routes>
@@ -58,11 +55,9 @@ export default function App() {
     <AdminProvider>
       <DataProvider>
         <AuthProvider>
-          <CartProvider>
-            <LikesProvider>
-              <AppContent />
-            </LikesProvider>
-          </CartProvider>
+          <LikesProvider>
+            <AppContent />
+          </LikesProvider>
         </AuthProvider>
       </DataProvider>
     </AdminProvider>
