@@ -1,104 +1,56 @@
-import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FiMenu, FiX, FiUser } from "react-icons/fi";
-import { useAuth } from "../context/AuthContext";
-import AnimatedList from "./AnimatedList";
-
-const links = [
-  { to: "/", label: "Home" },
-  { to: "/videos", label: "Videos" },
-  { to: "/shop", label: "Shop" },
-  { to: "/community", label: "Community" },
-];
+import { FiYoutube, FiShoppingBag } from 'react-icons/fi';
+import { FaTiktok } from 'react-icons/fa';
+import config from '../config';
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const { user, logout, setShowAuthModal } = useAuth();
-  const navigate = useNavigate();
-
-  const navLinkClass = ({ isActive }) =>
-    `transition-colors duration-200 hover:text-brand-gold ${
-      isActive ? "text-brand-gold font-semibold" : "text-gray-300"
-    }`;
-
-  const mobileMenuItems = [
-    ...links.map((l) => l.label),
-    user ? `Logout (${user.username})` : "Sign In",
-  ];
-
-  const handleMobileSelect = (item, index) => {
-    if (index < links.length) {
-      navigate(links[index].to);
-    } else if (user) {
-      logout();
-    } else {
-      setShowAuthModal(true);
-    }
-    setOpen(false);
-  };
+  const { youtube, tiktok, ebay } = config;
 
   return (
     <nav className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-display text-2xl md:text-3xl text-brand-red tracking-wide">
-            OHIO
-          </span>
-          <span className="font-display text-2xl md:text-3xl text-brand-gold tracking-wide">
-            BREAKERS
-          </span>
-        </Link>
+        <a href="#top" className="flex items-center gap-2">
+          <span className="font-display text-2xl md:text-3xl text-brand-red tracking-wide">OH</span><span className="font-display text-2xl md:text-3xl text-brand-gold tracking-wide">Breakers</span>
+        </a>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-6">
-          {links.map((l) => (
-            <NavLink key={l.to} to={l.to} className={navLinkClass} end={l.to === "/"}>
-              {l.label}
-            </NavLink>
-          ))}
+        {/* Section links */}
+        <div className="hidden md:flex items-center gap-6 text-sm text-gray-300">
+          <a href="#youtube" className="hover:text-brand-gold transition-colors">Videos</a>
+          <a href="#tiktok" className="hover:text-brand-gold transition-colors">TikTok</a>
+          <a href="#shop" className="hover:text-brand-gold transition-colors">Shop</a>
         </div>
 
-        {/* Right section */}
-        <div className="flex items-center gap-4">
-          {user ? (
-            <button
-              onClick={logout}
-              className="hidden md:flex items-center gap-1 text-sm text-gray-300 hover:text-white"
-            >
-              <img src={user.avatar} alt="" className="w-7 h-7 rounded-full" />
-              <span>{user.username}</span>
-            </button>
-          ) : (
-            <button
-              onClick={() => setShowAuthModal(true)}
-              className="hidden md:flex items-center gap-1 text-gray-300 hover:text-brand-gold"
-            >
-              <FiUser size={20} />
-            </button>
-          )}
-          <button
-            className="md:hidden text-gray-300 hover:text-white"
-            onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
+        {/* Social icon links */}
+        <div className="flex items-center gap-1">
+          <a
+            href={youtube.channelUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-red-500 p-2 transition-colors"
+            title="YouTube"
           >
-            {open ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+            <FiYoutube size={22} />
+          </a>
+          <a
+            href={tiktok.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white p-2 transition-colors"
+            title="TikTok"
+          >
+            <FaTiktok size={20} />
+          </a>
+          <a
+            href={ebay.storeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-brand-gold p-2 transition-colors"
+            title="eBay Store"
+          >
+            <FiShoppingBag size={20} />
+          </a>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden border-t border-white/10 bg-brand-dark">
-          <AnimatedList
-            items={mobileMenuItems}
-            onItemSelect={handleMobileSelect}
-            showGradients={false}
-            enableArrowNavigation
-            displayScrollbar={false}
-          />
-        </div>
-      )}
     </nav>
   );
 }

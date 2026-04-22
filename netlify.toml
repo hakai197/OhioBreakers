@@ -1,0 +1,11 @@
+[build]
+  command   = "npm run build"
+  publish   = "build"
+
+# Since the site uses only anchor links (no React Router), a catch-all
+# redirect isn't strictly required, but this protects direct URL hits
+# in case Netlify ever returns a 404 for the root.
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
