@@ -38,6 +38,14 @@ const config = {
 
     /** Display name shown on the page */
     storeName: 'OHBreakers',
+
+    /**
+     * Your eBay seller username (not the store name — the account username).
+     * Used to build the RSS feed that pulls live listings automatically.
+     * Find it at: ebay.com → My eBay → Account → Personal Info → Username
+     * Example: 'ohbreakers_cards'
+     */
+    sellerUsername: 'YOUR_EBAY_USERNAME',
   },
 };
 
