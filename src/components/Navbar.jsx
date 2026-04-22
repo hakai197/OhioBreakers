@@ -9,7 +9,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         {/* Logo */}
-        <a href="#top" className="flex items-center gap-2">
+        <a href="#top" className="flex items-center gap-0">
           <span className="font-display text-2xl md:text-3xl text-brand-red tracking-wide">OH</span><span className="font-display text-2xl md:text-3xl text-brand-gold tracking-wide">Breakers</span>
         </a>
 

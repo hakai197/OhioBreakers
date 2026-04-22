@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         <p className="text-gray-500 text-xs">
-          &copy; {new Date().getFullYear()} OHBreakers. All rights reserved.
+          &copy; {new Date().getFullYear()} U197 Designs. All rights reserved.
         </p>
       </div>
     </footer>
