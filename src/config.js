@@ -21,7 +21,7 @@ const config = {
     username: 'yourUsername',
 
     /** Full URL to your TikTok profile */
-    profileUrl: 'https://www.tiktok.com/@yourUsername',
+    profileUrl: 'https://www.tiktok.com/@OhBreakers',
 
     /**
      * Optional: TikTok video IDs to embed as featured clips.
